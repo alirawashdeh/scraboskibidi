@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "src/main/java/com/scrabosoft/scraboskibidi"
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
+}
