@@ -11,7 +11,7 @@ In Terminal, enter:
 
 ```
 cd scraboskibidi
-./gradlew
+./gradlew build
 ```
 
 ## Install

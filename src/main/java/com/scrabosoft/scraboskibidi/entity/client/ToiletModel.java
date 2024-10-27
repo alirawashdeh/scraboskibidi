@@ -10,8 +10,11 @@ import net.minecraft.client.model.geom.*;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.scrabosoft.scraboskibidi.entity.animations.ModAnimationDefinitions;
+import com.scrabosoft.scraboskibidi.entity.custom.ToiletEntity;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 
 // Made with Blockbench 4.11.1
 // Exported for Minecraft version 1.17 or later with Mojang mappings
@@ -44,12 +47,22 @@ public class ToiletModel<T extends Entity> extends HierarchicalModel<T> {
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
-
-
 	@Override
-	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.root().getAllParts().forEach(ModelPart::resetPose);
 		
+		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
+		this.animate(((ToiletEntity) entity).idleAnimationState, ModAnimationDefinitions.TOILET_IDLE, ageInTicks, 1f);
 	}
+
+	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
+		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
+		pHeadPitch = Mth.clamp(pHeadPitch, -25.0F, 45.0F);
+
+		this.Head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
+		this.Head.xRot = pHeadPitch * ((float)Math.PI / 180F);
+	}
+
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
