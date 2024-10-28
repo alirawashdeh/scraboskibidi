@@ -1,5 +1,7 @@
 package com.scrabosoft.scraboskibidi.entity.client;
 
+import javax.annotation.Nonnull;
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.scrabosoft.scraboskibidi.ScraboSkibidi;
 import com.scrabosoft.scraboskibidi.entity.custom.ToiletEntity;
@@ -19,8 +21,8 @@ public class ToiletRenderer extends MobRenderer<ToiletEntity, ToiletModel<Toilet
     }
 
     @Override
-    public void render(ToiletEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
-                       MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(@Nonnull ToiletEntity pEntity, float pEntityYaw, float pPartialTicks, @Nonnull PoseStack pMatrixStack,
+                       @Nonnull MultiBufferSource pBuffer, int pPackedLight) {
         if(pEntity.isBaby()) {
             pMatrixStack.scale(0.5f, 0.5f, 0.5f);
         }

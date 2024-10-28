@@ -2,7 +2,6 @@ package com.scrabosoft.scraboskibidi;
 
 import com.mojang.logging.LogUtils;
 import com.scrabosoft.scraboskibidi.entity.ModEntities;
-import com.scrabosoft.scraboskibidi.entity.client.ToiletModel;
 import com.scrabosoft.scraboskibidi.entity.client.ToiletRenderer;
 
 import net.minecraft.client.Minecraft;

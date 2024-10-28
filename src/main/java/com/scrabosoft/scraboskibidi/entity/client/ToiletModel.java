@@ -8,6 +8,8 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.*;
 
+import javax.annotation.Nonnull;
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.scrabosoft.scraboskibidi.entity.animations.ModAnimationDefinitions;
@@ -60,12 +62,12 @@ public class ToiletModel<T extends Entity> extends HierarchicalModel<T> {
 		pHeadPitch = Mth.clamp(pHeadPitch, -25.0F, 45.0F);
 
 		this.Head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
-		this.Head.xRot = pHeadPitch * ((float)Math.PI / 180F);
+		this.Head.xRot = pHeadPitch * ((float)Math.PI / 180F); 
 	}
 
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+	public void renderToBuffer(@Nonnull PoseStack poseStack, @Nonnull VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		BasicToilet.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 
