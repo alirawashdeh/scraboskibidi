@@ -1,21 +1,15 @@
 package com.scrabosoft.scraboskibidi.entity.client;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.*;
-
 import javax.annotation.Nonnull;
-
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.scrabosoft.scraboskibidi.entity.animations.ModAnimationDefinitions;
 import com.scrabosoft.scraboskibidi.entity.custom.ToiletEntity;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 // Made with Blockbench 4.11.1
