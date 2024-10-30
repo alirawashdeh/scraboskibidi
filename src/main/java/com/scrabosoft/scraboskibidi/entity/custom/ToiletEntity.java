@@ -1,5 +1,6 @@
 package com.scrabosoft.scraboskibidi.entity.custom;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.scrabosoft.scraboskibidi.entity.ModEntities;
@@ -78,21 +79,21 @@ public class ToiletEntity extends Animal {
         .add(Attributes.ATTACK_DAMAGE, 2.0F);
 
     }
+
     @Override
-    public boolean isFood(ItemStack p_27600_) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isFood'");
+    public boolean isFood(@Nonnull ItemStack p_27600_) {
+        return p_27600_.getItem() == Items.COOKED_BEEF;
     }
 
     @Override
     @Nullable
-    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
+    public AgeableMob getBreedOffspring(@Nonnull ServerLevel pLevel, @Nonnull AgeableMob pOtherParent) {
         return ModEntities.TOILET.get().create(pLevel);
     }
 
      @Nullable
     @Override
-    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+    protected SoundEvent getHurtSound(@Nonnull DamageSource pDamageSource) {
         return SoundEvents.RAVAGER_HURT;
     }
 

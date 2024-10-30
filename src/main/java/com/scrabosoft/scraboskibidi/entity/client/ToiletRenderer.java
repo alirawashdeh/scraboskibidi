@@ -16,7 +16,7 @@ public class ToiletRenderer extends MobRenderer<ToiletEntity, ToiletModel<Toilet
     }
 
     @Override
-    public ResourceLocation getTextureLocation(ToiletEntity pEntity) {
+    public ResourceLocation getTextureLocation(@Nonnull ToiletEntity pEntity) {
         return new ResourceLocation(ScraboSkibidi.MODID, "textures/entity/toilet.png");
     }
 
